@@ -57,6 +57,22 @@ int main()
 
 			} break;
 
+			case MAIN_FINISH:
+			{
+				
+				if (App->CleanUp())
+				{
+					LOG("\Applicaton has exited succesfully");
+					main_return = EXIT_SUCCESS;
+					state = MAIN_EXIT;
+				}
+				else
+				{
+					LOG("Application has exited with errors");
+					state = MAIN_EXIT;
+				}
+
+			}	break;
 			// TODO 1: Implement case MAIN_FINISH
 			// Remember to quit the game with EXIT_SUCCESS
 			// if everything went well :)

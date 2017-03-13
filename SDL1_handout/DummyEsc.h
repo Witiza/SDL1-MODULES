@@ -1,41 +1,47 @@
-#ifndef __DUMMY_H__
-#define __DUMMY_H__
+#ifndef __DummyESC_H__
+#define __DummyESC_H__
 
+#include<conio.h>
 #include "Module.h"
 #include "Globals.h"
 
-class ModuleDummy : public Module
+
+class ModuleDummyESC : public Module
 {
 	bool Init()
 	{
-		LOG("Dummy Init!");
+		LOG("DummyESC Init!");
 		return true;
 	}
 
 	update_status PreUpdate()
 	{
-		LOG("Dummy PreUpdate!");
+		LOG("DummyESC PreUpdate!");
 		return update_status::UPDATE_CONTINUE;
 	}
 
 	update_status Update()
 	{
-		LOG("Dummy Update!");
+		LOG("DummyESC Update!");
+		if (_kbhit())
+		{
+			return update_status::UPDATE_STOP;
+		}
 		return update_status::UPDATE_CONTINUE;
 	}
 
 	update_status PostUpdate()
 	{
-		LOG("Dummy PostUpdate!");
+		LOG("DummyESC PostUpdate!");
 		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp()
 	{
-		LOG("Dummy CleanUp!");
+		LOG("DummyESC CleanUp!");
 		delete this;
 		return true;
 	}
 };
 
-#endif // __DUMMY_H__
+#endif // __DummyESC_H__
