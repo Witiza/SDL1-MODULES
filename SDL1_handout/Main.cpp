@@ -78,6 +78,7 @@ int main()
 			// if everything went well :)
 		}
 	}
+	delete App;
 
 	LOG("\nBye :)\n");
 	// TODO 6: Remove ALL memory leaks

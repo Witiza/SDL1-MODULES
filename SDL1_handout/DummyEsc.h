@@ -4,6 +4,7 @@
 #include<conio.h>
 #include "Module.h"
 #include "Globals.h"
+#include "MemLeaks.h"
 
 
 class ModuleDummyESC : public Module
@@ -39,7 +40,6 @@ class ModuleDummyESC : public Module
 	bool CleanUp()
 	{
 		LOG("DummyESC CleanUp!");
-		delete this;
 		return true;
 	}
 };

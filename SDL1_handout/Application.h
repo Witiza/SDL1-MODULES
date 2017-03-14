@@ -25,6 +25,11 @@ public:
 		// http://www.cprogramming.com/fod/kbhit.html
 	}
 
+	~Application()
+	{
+		modules[0] = new ModuleDummy();
+		modules[1] = new ModuleDummyESC();
+	}
 	// INIT all modules
 	bool Init() 
 	{
@@ -37,7 +42,7 @@ public:
 					ret_value = false;
 				}
 			}
-			return ret_value;
+		return ret_value;
 		// TODO 5: Make sure that if Init() / PreUpdate/Update/PostUpdate/CleanUP return
 		// an exit code App exits correctly.
 	
@@ -85,13 +90,11 @@ public:
 		bool value = true;
 		for (int i = NUM_MODULES-1; i >= 0; --i)
 		{
-		
 			if (!modules[i]->CleanUp())
 			{
 				value = false;
 			}
 		}
-		delete modules;
 		return value;
 		// TODO 5: Make sure that if Init() / PreUpdate/Update/PostUpdate/CleanUP return
 		// an exit code App exits correctly.
